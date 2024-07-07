@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:@localhost:3306/film"
+}
+
+model film {
+  id        Int     @id @default(autoincrement())
+  titre     String? @db.VarChar(255)
+  desc_film String? @db.Text
+  poster    String? @db.VarChar(255)
+  categoy   String? @db.VarChar(45)
+}

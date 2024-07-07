@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Title Here</title>
+
+    <style>
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    position: relative;
+    overflow: hidden; /* Ensures the pseudo-element doesn't overflow */
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   background-image: url("http://localhost:3000/pochette/{{MOVIE_POSTER_BG}}");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Ensures the background image stays fixed while scrolling */
+
+    /* Example filter */
+    filter: blur(10px); /* Adjust the blur amount as needed */
+    z-index: -1; /* Ensure the pseudo-element is behind other content */
+}
+
+/* Styles for your content */
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right bottom, #14141433 0%, #000000 100%);
+    border: #aaa9a9 1px solid;
+    width: 60%;
+    height: 85%;
+    margin: 10%;
+    border-radius: 10px;
+    box-shadow: 3px 1px 20px 8px #888888;
+    max-width: 900px;
+    color: white;
+}
+
+.centered-content {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.catbtn {
+    padding: 8px 50px;
+    background: black;
+    color: white;
+    border-radius: 50px;
+    width: 40px;
+    text-align: center;
+    display: inline-block;
+}
+
+.flex-container img {
+    width: 100%;
+    max-width: 100%; /* Ensures image doesn't overflow */
+    border: 3px white solid;
+    border-radius: 15px;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div>
+            <img id="poster" src="../pochette/{{MOVIE_POSTER}}"">
+        </div>
+        <div class="centered-content">
+            <h2>{{MOVIE_TITLE}}</h2>
+            <p>{{MOVIE_DESCRIPTION}}</p>
+            <div>
+                <span class="catbtn">{{MOVIE_CATEGORY}}</span>
+            </div>
+        </div>
+    </div>
+
+
+   
+</body>
+
+</html>
